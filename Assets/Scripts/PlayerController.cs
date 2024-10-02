@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
         
             foreach (var pickup in PickUpManager.pickUps)
             {
+                if (!pickup.activeSelf)
+                {
+                    continue;
+                }
+                print(pickup);
                 pickup.GetComponent<Renderer>().material.color = Color.green;
                 Vector3 currentPlayerPosition = transform.position;
                 Vector3 currentPickUpPosition = pickup.transform.position;
